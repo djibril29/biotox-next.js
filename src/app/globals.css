@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+:root {
+  --color-primary: #1e40af; /* Bleu foncé */
+  --color-secondary: #37afae; /* Turquoise/Teal */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#37afae] text-white rounded-full font-medium text-sm hover:bg-[#2a9d9c] transition-all duration-300 shadow-lg hover:shadow-xl;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-gray-900 rounded-full font-medium text-sm border border-gray-200 hover:border-[#37afae] hover:text-[#37afae] transition-all duration-300;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-transparent text-[#37afae] rounded-full font-medium text-sm border-2 border-[#37afae] hover:bg-[#37afae] hover:text-white transition-all duration-300;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300;
+}
+
+.card-elevated {
+  @apply bg-white rounded-2xl shadow-xl border border-gray-50;
+}
+
+/* Section padding */
+.section-padding {
+  @apply py-20 md:py-28;
+}
+
+/* Container max width */
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Accent colors */
+.text-accent {
+  color: #37afae;
+}
+
+.bg-accent {
+  background-color: #37afae;
+}
+
+.border-accent {
+  border-color: #37afae;
+}
+
+.hover\:text-accent:hover {
+  color: #37afae;
+}
+
+.hover\:bg-accent:hover {
+  background-color: #37afae;
+}
