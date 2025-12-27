@@ -20,7 +20,7 @@ export default function VideoSection() {
               <span className="text-[#37afae]">pour un environnement maîtrisé.</span>
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed mb-8">
-              La mission principale de BTLABS est d'accompagner les entreprises et les institutions dans la maîtrise de leurs impacts environnementaux et sanitaires, en fournissant des mesures fiables, des analyses scientifiques rigoureuses et des solutions adaptées pour améliorer durablement leur performance et leur conformité réglementaire.
+              La mission principale de BTLABS est d&apos;accompagner les entreprises et les institutions dans la maîtrise de leurs impacts environnementaux et sanitaires, en fournissant des mesures fiables, des analyses scientifiques rigoureuses et des solutions adaptées pour améliorer durablement leur performance et leur conformité réglementaire.
             </p>
             <div className="flex items-center gap-4 mb-8">
               <div className="w-12 h-[2px] bg-[#37afae]" />
