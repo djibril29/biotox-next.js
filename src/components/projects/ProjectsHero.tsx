@@ -5,7 +5,7 @@ import { ArrowRight, ChevronLeft, ChevronRight as ChevronRightIcon } from 'lucid
 
 export default function ProjectsHero() {
   return (
-    <section className="relative min-h-[80vh] flex items-center">
+    <section className="relative min-h-[85vh] flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image

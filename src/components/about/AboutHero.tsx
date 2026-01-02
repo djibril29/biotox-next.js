@@ -6,7 +6,7 @@ export default function AboutHero() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center">
+      <section className="relative min-h-[75vh] flex items-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
