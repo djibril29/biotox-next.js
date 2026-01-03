@@ -23,7 +23,7 @@ export default function AboutCTA() {
               </Link>
               <Link
                 href="/projets"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-transparent text-white rounded-full font-medium text-sm border border-white/20 hover:bg-white/10 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-transparent text-white rounded-lg font-medium text-sm border border-white/20 hover:bg-white/10 transition-colors"
               >
                 <FileText size={18} />
                 Nos réalisations

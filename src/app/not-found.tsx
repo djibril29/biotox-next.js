@@ -15,14 +15,14 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2 bg-[#37afae] hover:bg-[#2a9d9c] text-white px-6 py-3 rounded-full font-semibold text-sm uppercase tracking-wider transition-all"
+            className="inline-flex items-center justify-center gap-2 bg-[#37afae] hover:bg-[#2a9d9c] text-white px-6 py-3 rounded-lg font-semibold text-sm uppercase tracking-wider transition-all"
           >
             <Home size={18} />
             Retour à l&apos;accueil
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 border border-gray-300 hover:border-gray-400 text-gray-700 px-6 py-3 rounded-full font-semibold text-sm uppercase tracking-wider transition-all"
+            className="inline-flex items-center justify-center gap-2 border border-gray-300 hover:border-gray-400 text-gray-700 px-6 py-3 rounded-lg font-semibold text-sm uppercase tracking-wider transition-all"
           >
             <ArrowLeft size={18} />
             Nous contacter

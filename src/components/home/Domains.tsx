@@ -1,5 +1,8 @@
+'use client';
+
 import { Activity, FileText, FlaskConical, Map, Shield, GraduationCap } from 'lucide-react';
 import Link from 'next/link';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const services = [
   {
@@ -55,11 +58,17 @@ const colorClasses: Record<string, { bg: string; icon: string; hover: string }> 
 };
 
 export default function Domains() {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-white overflow-hidden">
       <div className="container">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div 
+          ref={headerRef}
+          className={`text-center max-w-2xl mx-auto mb-16 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Nos services
           </h2>
@@ -70,7 +79,7 @@ export default function Domains() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             const colors = colorClasses[service.color];
@@ -78,12 +87,13 @@ export default function Domains() {
               <Link
                 key={index}
                 href={service.href}
-                className="group card p-8 hover:border-gray-200"
+                className={`group card p-8 hover:border-gray-200 card-lift transition-all duration-700 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className={`w-14 h-14 ${colors.bg} ${colors.hover} rounded-xl flex items-center justify-center mb-5 transition-colors`}>
+                <div className={`w-14 h-14 ${colors.bg} ${colors.hover} rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110`}>
                   <Icon className={`w-7 h-7 ${colors.icon}`} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#37afae] transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#37afae] transition-colors duration-300">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">

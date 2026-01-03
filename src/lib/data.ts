@@ -377,9 +377,9 @@ export const team = [
 
 export const navigation = [
   { name: 'Accueil', href: '/' },
+  { name: 'À Propos', href: '/a-propos' },
   { name: 'Services', href: '/services' },
   { name: 'Projets', href: '/projets' },
-  { name: 'À Propos', href: '/a-propos' },
   { name: 'Contact', href: '/contact' },
 ];
 

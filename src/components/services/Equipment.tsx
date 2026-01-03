@@ -15,42 +15,67 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const equipment = [
   {
-    number: '1',
+   
     icon: Activity,
     title: 'Stations de mesure de la qualité de l\'air',
-    subtitle: 'SGA, Zwinsoft, autres plateformes',
+    subtitle: 'ZWIN-AQMS06, Zwinsoft, SGA',
     description: 'Stations intelligentes permettant la mesure continue des polluants atmosphériques (PM2.5, PM10, SO₂, NO₂, CO, COV…) avec enregistrement automatique, transmission cloud, alarmes, analyse des tendances et reporting.',
-    image: 'https://images.unsplash.com/photo-1581093458791-9d42e3c7e117?w=800&q=80',
+    image: '/images/equipment/air.png',
   },
   {
-    number: '2',
+   
     icon: Wind,
     title: 'Analyseurs de gaz & poussières',
-    subtitle: 'ENVEA, SGA, Sauermann',
-    description: 'Analyseurs haute précision pour les gaz réglementés et particules fines. Analyse des rejets de combustion : CO, CO₂, O₂, NOx, rendement énergétique, pertes à la cheminée. Optimisation énergétique et conformité ISO.',
-    image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80',
+    subtitle: 'ENVEA, Systèmes industriels',
+    description: 'Armoires d\'analyse industrielle haute précision pour le monitoring continu des gaz réglementés. Écran tactile intégré, systèmes d\'alarme et reporting automatisé. Conformité aux normes industrielles.',
+    image: '/images/equipment/gaz.jpeg',
   },
   {
-    number: '3',
+    
+    icon: Wind,
+    title: 'Analyseurs portables Sauermann',
+    subtitle: 'Si-CA Series, Application mobile',
+    description: 'Analyseurs de combustion portables avec connectivité smartphone. Analyse des rejets : CO, CO₂, O₂, NOx, rendement énergétique. Interface intuitive et rapports instantanés sur application mobile.',
+    image: '/images/equipment/Sauermann.png',
+  },
+  {
+   
     icon: Volume2,
     title: 'Sonomètres & analyse du bruit',
-    subtitle: 'PCE 322A, AWA, Oceanus, Sonichek Pro',
+    subtitle: 'REED R8050, PCE 322A, AWA',
     description: 'Mesure du bruit ambiant et des postes de travail (dB(A), dB(C), Fast/Slow). Sonomètres intégrateurs classe 1, dataloggers 24h, logiciels d\'analyse acoustique. Traitement ISO 9612, calcul du niveau d\'exposition.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    image: '/images/equipment/bruit.jpg',
   },
   {
-    number: '4',
+    
+    icon: Droplets,
+    title: 'Analyseurs d\'eau',
+    subtitle: 'PCE-PHD 1 et équipements associés',
+    description: 'Sondes multiparamètres et spectrophotomètres pour mesurer pH, conductivité, turbidité, oxygène dissous, température. Contrôle qualité eau potable, industrielle et rejets. Conformité OMS et normes nationales.',
+    image: '/images/equipment/eau.jpg',
+  },
+  {
+    
+    icon: FlaskConical,
+    title: 'Instruments de laboratoire',
+    subtitle: 'Équipements d\'analyse complets',
+    description: 'Équipements de laboratoire pour analyses physico-chimiques : béchers, erlenmeyers, tubes à essai, microscopes, spectrophotomètres. Prélèvements et analyses d\'air, eau et sols conformes aux standards internationaux.',
+    image: '/images/equipment/labo.jpg',
+  },
+  {
+    
     icon: Vibrate,
     title: 'Vibromètre / Vibrations industrielles',
     subtitle: 'Conformité ISO 2631 & ISO 4866',
     description: 'Outil spécialisé pour mesurer les vibrations mécaniques sur les machines, structures, zones industrielles et chantiers. Diagnostic préventif, sécurité des structures, détection d\'anomalies mécaniques.',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80',
+    image: '/images/equipment/vib.jpg',
   },
   {
-    number: '5',
+    
     icon: MapPin,
     title: 'GPS & Drones',
     subtitle: 'Géolocalisation haute précision',
@@ -58,36 +83,12 @@ const equipment = [
     image: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80',
   },
   {
-    number: '6',
+  
     icon: Map,
     title: 'Systèmes d\'Information Géographique (SIG)',
     subtitle: 'QGIS, ArcGIS',
     description: 'Cartographie avancée pour intégrer les mesures de terrain, analyser les données spatiales, produire des cartes de pollution, zones d\'impact, roses des vents, plans de gestion. Supports EIES/PGES et modélisation environnementale.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
-  },
-  {
-    number: '7',
-    icon: Cloud,
-    title: 'Modélisation atmosphérique',
-    subtitle: 'AERMOD, CALPUFF, ADMS',
-    description: 'Simulation de la dispersion des polluants, études d\'impact (fumées, poussières, gaz), prévision des concentrations selon la météo. Aide à la décision pour réduire les émissions.',
-    image: 'https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&q=80',
-  },
-  {
-    number: '8',
-    icon: Droplets,
-    title: 'Analyseurs d\'eau',
-    subtitle: 'PCE PHD 1 et équipements associés',
-    description: 'Sondes multiparamètres et spectrophotomètres pour mesurer pH, conductivité, turbidité, oxygène dissous, température. Contrôle qualité eau potable, industrielle et rejets. Conformité OMS et normes nationales.',
-    image: 'https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?w=800&q=80',
-  },
-  {
-    number: '9',
-    icon: FlaskConical,
-    title: 'Instruments de laboratoire',
-    subtitle: 'Équipements complémentaires',
-    description: 'Balances de précision (PM10/PM2.5 - pesée des filtres), pompes d\'échantillonnage, supports de filtres, accessoires pour prélèvement d\'air, eau et sols. Analyses en laboratoire et vérification des niveaux de polluants.',
-    image: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80',
   },
 ];
 
@@ -95,6 +96,8 @@ export default function Equipment() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: carouselRef, isVisible: carouselVisible } = useScrollAnimation({ threshold: 0.1 });
 
   const checkScrollButtons = () => {
     if (scrollRef.current) {
@@ -128,7 +131,10 @@ export default function Equipment() {
     <section className="section-padding bg-gray-900 overflow-hidden">
       <div className="container">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+        <div 
+          ref={headerRef}
+          className={`flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        >
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Des équipements <span className="text-[#37afae]">modernes et certifiés</span>
@@ -145,10 +151,10 @@ export default function Equipment() {
               type="button"
               onClick={() => scroll('left')}
               disabled={!canScrollLeft}
-              className={`w-12 h-12 rounded-full flex items-center justify-center text-white transition-all cursor-pointer ${
+              className={`w-12 h-12 rounded-full flex items-center justify-center text-white transition-all cursor-pointer hover:scale-110 ${
                 canScrollLeft 
                   ? 'bg-white/20 hover:bg-white/30' 
-                  : 'bg-white/5 opacity-50 cursor-not-allowed'
+                  : 'bg-white/5 opacity-50 cursor-not-allowed hover:scale-100'
               }`}
               aria-label="Défiler à gauche"
             >
@@ -158,10 +164,10 @@ export default function Equipment() {
               type="button"
               onClick={() => scroll('right')}
               disabled={!canScrollRight}
-              className={`w-12 h-12 rounded-full flex items-center justify-center text-white transition-all cursor-pointer ${
+              className={`w-12 h-12 rounded-full flex items-center justify-center text-white transition-all cursor-pointer hover:scale-110 ${
                 canScrollRight 
                   ? 'bg-[#37afae] hover:bg-[#2a9d9c]' 
-                  : 'bg-[#37afae]/50 opacity-50 cursor-not-allowed'
+                  : 'bg-[#37afae]/50 opacity-50 cursor-not-allowed hover:scale-100'
               }`}
               aria-label="Défiler à droite"
             >
@@ -173,8 +179,13 @@ export default function Equipment() {
 
       {/* Carousel */}
       <div
-        ref={scrollRef}
-        className="flex gap-6 overflow-x-auto pb-4 px-4 md:px-8 lg:px-16"
+        ref={(node) => {
+          scrollRef.current = node;
+          if (carouselRef && typeof carouselRef === 'object') {
+            (carouselRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
+          }
+        }}
+        className={`flex gap-6 overflow-x-auto pb-4 px-4 md:px-8 lg:px-16 transition-all duration-700 ${carouselVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
         style={{ 
           scrollbarWidth: 'none', 
           msOverflowStyle: 'none',
@@ -182,13 +193,16 @@ export default function Equipment() {
           scrollSnapType: 'x mandatory'
         }}
       >
-        {equipment.map((item) => {
+        {equipment.map((item, index) => {
           const Icon = item.icon;
           return (
             <div
-              key={item.number}
-              className="flex-shrink-0 w-[320px] md:w-[380px] bg-white rounded-2xl overflow-hidden group"
-              style={{ scrollSnapAlign: 'start' }}
+              key={index}
+              className={`flex-shrink-0 w-[320px] md:w-[380px] bg-white rounded-2xl overflow-hidden group card-lift transition-all duration-500 ${carouselVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              style={{ 
+                scrollSnapAlign: 'start',
+                transitionDelay: `${index * 100}ms`
+              }}
             >
               {/* Image */}
               <div className="relative h-48 overflow-hidden">
@@ -196,21 +210,20 @@ export default function Equipment() {
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  unoptimized
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  unoptimized={item.image.startsWith('http')}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 flex items-center gap-3">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-lg">
+                <div className="absolute bottom-4 left-4">
+                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <Icon className="w-5 h-5 text-[#37afae]" />
                   </div>
-                  <span className="text-white font-bold text-lg">#{item.number}</span>
                 </div>
               </div>
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-1 leading-tight">
+                <h3 className="text-lg font-bold text-gray-900 mb-1 leading-tight group-hover:text-[#37afae] transition-colors duration-300">
                   {item.title}
                 </h3>
                 <p className="text-sm text-[#37afae] font-medium mb-3">{item.subtitle}</p>

@@ -16,7 +16,7 @@ export default function CTABanner() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#37afae] rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#37afae] rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
           >
             Contacter un expert
             <ArrowRight size={18} />

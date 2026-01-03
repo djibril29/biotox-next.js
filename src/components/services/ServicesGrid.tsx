@@ -12,6 +12,7 @@ import {
   Building2, 
   GraduationCap 
 } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const domains = [
   {
@@ -27,7 +28,7 @@ const domains = [
       'Bruit, poussières, métaux lourds',
       'Audits HSE',
     ],
-    image: '/images/services/service-1.jpeg',
+    image: '/images/services/indus.jpeg',
   },
   {
     id: 'ciment',
@@ -42,7 +43,7 @@ const domains = [
       'EIES',
       'Plan de gestion environnementale',
     ],
-    image: '/images/services/service-2.jpeg',
+    image: '/images/services/ciment.jpg',
   },
   {
     id: 'agro',
@@ -57,7 +58,7 @@ const domains = [
       'Maîtrise des risques',
       'Formations',
     ],
-    image: '/images/projects/project-1.jpeg',
+    image: '/images/services/agro.jpg',
   },
   {
     id: 'chimie',
@@ -72,7 +73,7 @@ const domains = [
       'Conformité réglementaire',
       'EIES avancées',
     ],
-    image: '/images/services/service-1.jpeg',
+    image: '/images/services/chimie.jpg',
   },
   {
     id: 'btp',
@@ -85,7 +86,7 @@ const domains = [
       'Bruit',
       'Évaluation des impacts temporaires',
     ],
-    image: '/images/projects/project-2.jpeg',
+    image: '/images/services/BTP.jpg',
   },
   {
     id: 'eau',
@@ -100,7 +101,7 @@ const domains = [
       'Surveillance continue',
       'Études hydriques',
     ],
-    image: '/images/services/service-2.jpeg',
+    image: '/images/services/assinie.jpg',
   },
   {
     id: 'energie',
@@ -115,7 +116,7 @@ const domains = [
       'Évaluation des nuisances',
       'Conformité ISO',
     ],
-    image: '/images/hero/hero3.jpeg',
+    image: '/images/services/energie.jpg',
   },
   {
     id: 'collectivites',
@@ -129,7 +130,7 @@ const domains = [
       'Plans d\'amélioration',
       'Formation du personnel',
     ],
-    image: '/images/projects/project-1.jpeg',
+    image: '/images/services/port.jpg',
   },
   {
     id: 'formation',
@@ -149,13 +150,19 @@ const domains = [
 ];
 
 export default function ServicesGrid() {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <section className="section-padding bg-gray-50">
+    <section className="section-padding bg-gray-50 overflow-hidden">
       <div className="container">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div 
+          ref={headerRef}
+          className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            9 Secteurs d&apos;Expertise
+           Nos Secteurs d&apos;Expertise
           </h2>
           <p className="text-gray-600">
             Une couverture complète des industries et collectivités.
@@ -163,14 +170,15 @@ export default function ServicesGrid() {
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {domains.map((domain) => {
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {domains.map((domain, index) => {
             const Icon = domain.icon;
             return (
               <div
                 key={domain.id}
                 id={domain.id}
-                className="card overflow-hidden group"
+                className={`card overflow-hidden group card-lift transition-all duration-700 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
@@ -178,11 +186,11 @@ export default function ServicesGrid() {
                     src={domain.image}
                     alt={domain.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent" />
                   <div className="absolute bottom-4 left-4 flex items-center gap-3">
-                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg">
+                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                       <Icon className="w-6 h-6 text-[#37afae]" />
                     </div>
                     <span className="text-white/80 text-sm font-medium">#{domain.number}</span>
@@ -191,7 +199,7 @@ export default function ServicesGrid() {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#37afae] transition-colors">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#37afae] transition-colors duration-300">
                     {domain.title}
                   </h3>
                   <p className="text-gray-600 mb-4 leading-relaxed text-sm">
@@ -204,8 +212,8 @@ export default function ServicesGrid() {
                       Prestations
                     </p>
                     <ul className="space-y-1.5">
-                      {domain.prestations.slice(0, 4).map((prestation, index) => (
-                        <li key={index} className="flex items-start gap-2 text-sm text-gray-500">
+                      {domain.prestations.slice(0, 4).map((prestation, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-sm text-gray-500">
                           <span className="w-1.5 h-1.5 bg-[#37afae] rounded-full mt-1.5 flex-shrink-0" />
                           {prestation}
                         </li>

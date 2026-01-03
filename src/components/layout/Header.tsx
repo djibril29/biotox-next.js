@@ -115,7 +115,7 @@ export default function Header() {
             <div className="hidden lg:block">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-[#37afae] hover:bg-[#2a9d9c] text-white px-6 py-3 rounded-full font-semibold text-sm uppercase tracking-wider transition-all"
+                className="inline-flex items-center gap-2 bg-[#37afae] hover:bg-[#2a9d9c] text-white px-6 py-3 rounded-lg font-semibold text-sm uppercase tracking-wider transition-all"
               >
                 Demander un devis
               </Link>
@@ -135,36 +135,42 @@ export default function Header() {
           </div>
         </nav>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100 shadow-lg">
-            <div className="container py-4 space-y-1">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                    isActive(item.href)
-                      ? 'bg-[#37afae]/10 text-[#37afae]'
-                      : 'text-gray-600 hover:bg-gray-50'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="pt-3">
-                <Link
-                  href="/contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full text-center bg-[#37afae] hover:bg-[#2a9d9c] text-white px-6 py-3 rounded-full font-semibold text-sm uppercase tracking-wider transition-all"
-                >
-                  Demander un devis
-                </Link>
-              </div>
+        {/* Mobile Menu with slide animation */}
+        <div 
+          className={`lg:hidden bg-white border-t border-gray-100 shadow-lg overflow-hidden transition-all duration-300 ease-out ${
+            mobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="container py-4 space-y-1">
+            {navigation.map((item, index) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  isActive(item.href)
+                    ? 'bg-[#37afae]/10 text-[#37afae]'
+                    : 'text-gray-600 hover:bg-gray-50'
+                } ${mobileMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`}
+                style={{ transitionDelay: mobileMenuOpen ? `${index * 50}ms` : '0ms' }}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <div 
+              className={`pt-3 transition-all duration-300 ${mobileMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`}
+              style={{ transitionDelay: mobileMenuOpen ? `${navigation.length * 50}ms` : '0ms' }}
+            >
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="btn-shine block w-full text-center bg-[#37afae] hover:bg-[#2a9d9c] text-white px-6 py-3 rounded-lg font-semibold text-sm uppercase tracking-wider transition-all"
+              >
+                Demander un devis
+              </Link>
             </div>
           </div>
-        )}
+        </div>
       </header>
     </>
   );
