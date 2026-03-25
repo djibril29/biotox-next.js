@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, ChevronRight as ChevronRightIcon } from 'lucide-react';
+import { ChevronRight as ChevronRightIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useScrollAnimation, useCounterAnimation } from '@/hooks/useScrollAnimation';
 
@@ -17,60 +17,70 @@ export default function AboutHero() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-[100vh] flex items-center overflow-hidden">
-        {/* Background Image with zoom animation */}
-        <div className="absolute inset-0 z-0">
-          <div className={`absolute inset-0 transition-transform duration-[2000ms] ease-out ${isLoaded ? 'scale-100' : 'scale-110'}`}>
-            <Image
-              src="/images/hero/hero1.jpeg"
-              alt="Équipe BTLABS"
-              fill
-              className="object-cover object-center"
-              priority
-              sizes="100vw"
+      {/* ── Hero Section ── */}
+      <section className="relative min-h-[75vh] overflow-hidden">
+
+        {/* Background panels */}
+        <div className="absolute inset-0 flex flex-col lg:flex-row pointer-events-none">
+          <div className="order-2 lg:order-1 flex-1 bg-gray-900" />
+          <div className="order-1 lg:order-2 flex-1 relative overflow-hidden">
+            <div className={`absolute inset-0 transition-transform duration-[8000ms] ease-out ${isLoaded ? 'scale-110' : 'scale-100'}`}>
+              <Image
+                src="/images/hero/hero1.jpeg"
+                alt="Équipe BTLABS"
+                fill
+                className="object-cover object-center"
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div className="absolute z-10 inset-0 bg-gradient-to-r from-gray-900 via-gray-900/20 to-transparent hidden lg:block" />
+            <div className="absolute z-10 inset-0 bg-gradient-to-b from-transparent to-gray-900 lg:hidden" />
+            <div
+              className="hidden lg:block absolute inset-y-0 left-0 w-20 z-10 bg-gray-900"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }}
             />
           </div>
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
         </div>
 
         {/* Content */}
-        <div className="container relative z-10 pt-32 pb-16">
-          <div className="max-w-3xl">
+        <div className="container relative z-10 flex flex-col lg:flex-row min-h-[75vh]">
+          <div className="order-2 lg:order-1 w-full lg:w-1/2 flex flex-col justify-center pt-32 pb-16">
+
             {/* Breadcrumb */}
-            <nav 
-              className={`flex items-center gap-2 text-sm text-white/60 mb-6 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-              style={{ transitionDelay: '200ms' }}
+            <nav
+              className={`flex items-center gap-2 text-sm text-white/60 mb-6 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
+              style={{ transitionDelay: '100ms' }}
             >
-              <Link href="/" className="hover:text-white transition-colors">
-                Accueil
-              </Link>
+              <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
               <ChevronRightIcon size={14} />
               <span className="text-white">À propos</span>
             </nav>
 
-            <h1 
-              className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-              style={{ transitionDelay: '400ms' }}
+            <h1
+              className={`text-4xl sm:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
+              style={{ transitionDelay: '250ms' }}
             >
-              Qui sommes-nous ?
+              Qui sommes-<span className="text-[#37afae]">nous ?</span>
             </h1>
-            <p 
-              className={`text-white/80 text-lg max-w-xl transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-              style={{ transitionDelay: '600ms' }}
+
+            <p
+              className={`text-white/60 text-base lg:text-lg leading-relaxed max-w-md transition-all duration-700 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
+              style={{ transitionDelay: '400ms' }}
             >
               Cabinet spécialisé en surveillance environnementale, études d&apos;impact et conseil QHSE.
             </p>
           </div>
+
+          <div className="order-1 lg:order-2 w-full lg:w-1/2 h-48 sm:h-64 lg:h-auto" />
         </div>
 
-        {/* Scroll Indicator */}
-        <div 
-          className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-10 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        {/* Scroll indicator */}
+        <div
+          className={`absolute bottom-8 left-1/2 lg:left-1/4 -translate-x-1/2 z-20 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           style={{ transitionDelay: '1000ms' }}
         >
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center animate-pulse">
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
             <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-bounce" />
           </div>
         </div>
@@ -88,29 +98,29 @@ export default function AboutHero() {
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 {[
                   <p key="1">
-                    BTLABS est un cabinet spécialisé en <strong>surveillance environnementale</strong>, 
-                    <strong> études d&apos;impact environnemental et social (EIES/PGES)</strong> et <strong>conseil QHSE</strong>.
+                    BTLABS est un cabinet spécialisé en <strong>surveillance environnementale</strong>,{' '}
+                    <strong>études d&apos;impact environnemental et social (EIES/PGES)</strong> et <strong>conseil QHSE</strong>.
                   </p>,
                   <p key="2">
-                    Nous accompagnons les industries, les collectivités et les projets de développement 
+                    Nous accompagnons les industries, les collectivités et les projets de développement
                     dans la maîtrise de leurs performances environnementales, sanitaires et sociales.
                   </p>,
                   <p key="3">
-                    Nous réalisons des mesures professionnelles de la qualité de l&apos;air, de l&apos;eau, 
-                    du bruit et des vibrations, en nous appuyant sur des équipements certifiés, 
+                    Nous réalisons des mesures professionnelles de la qualité de l&apos;air, de l&apos;eau,
+                    du bruit et des vibrations, en nous appuyant sur des équipements certifiés,
                     des systèmes d&apos;information géographique (SIG) et des outils de modélisation avancée.
                   </p>,
                   <p key="4">
-                    BTLABS propose également des programmes de <strong>formation et de renforcement de capacités</strong>, 
+                    BTLABS propose également des programmes de <strong>formation et de renforcement de capacités</strong>,
                     alignés sur les standards internationaux ISO, OMS et IFC.
                   </p>,
                   <p key="5">
-                    Grâce à une équipe d&apos;experts qualifiés et une approche scientifique rigoureuse, 
-                    nous fournissons des solutions fiables, innovantes et conformes aux exigences 
+                    Grâce à une équipe d&apos;experts qualifiés et une approche scientifique rigoureuse,
+                    nous fournissons des solutions fiables, innovantes et conformes aux exigences
                     réglementaires du Sénégal et de la sous-région.
                   </p>,
                 ].map((paragraph, index) => (
-                  <div 
+                  <div
                     key={index}
                     className={`transition-all duration-500 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                     style={{ transitionDelay: `${200 + index * 100}ms` }}
@@ -119,23 +129,20 @@ export default function AboutHero() {
                   </div>
                 ))}
               </div>
-             
             </div>
 
             {/* Image */}
-            <div 
-              className={`relative transition-all duration-700 delay-300 ${contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}
-            >
+            <div className={`relative transition-all duration-700 delay-300 ${contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
               <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl img-zoom">
                 <Image
                   src="/images/team/ceo.jpeg"
                   alt="Équipe BTLABS en action"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700"
                 />
               </div>
-              {/* Floating card with counter */}
-              <div 
+              <div
                 className={`absolute -bottom-6 -left-6 bg-[#37afae] text-white rounded-2xl p-6 max-w-[200px] shadow-xl hidden lg:block transition-all duration-700 delay-500 ${contentVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'}`}
               >
                 <p ref={counterRef as React.RefObject<HTMLParagraphElement>} className="text-3xl font-bold mb-1">

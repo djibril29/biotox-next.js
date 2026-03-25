@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
@@ -59,6 +57,7 @@ export default function Testimonials() {
                     src={testimonial.image}
                     alt={testimonial.author}
                     fill
+                    sizes="56px"
                     className="object-cover"
                   />
                 </div>

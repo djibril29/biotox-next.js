@@ -1,9 +1,15 @@
 import type { Metadata } from 'next';
+import { DM_Sans } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CustomCursor from '@/components/ui/CustomCursor';
-import PageTransition from '@/components/ui/PageTransition';
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-dm-sans',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -27,14 +33,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang="fr" className={dmSans.variable} suppressHydrationWarning>
       <body className="font-sans antialiased" suppressHydrationWarning>
         <CustomCursor />
         <Header />
         <main>
-          <PageTransition>
-            {children}
-          </PageTransition>
+          {children}
         </main>
         <Footer />
       </body>

@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, MapPin, Building2 } from 'lucide-react';
@@ -18,6 +16,7 @@ export default function FeaturedProject() {
               src={featured.image}
               alt={featured.title}
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
             <div className="absolute top-4 left-4">

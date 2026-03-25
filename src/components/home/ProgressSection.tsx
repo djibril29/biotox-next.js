@@ -71,6 +71,7 @@ export default function ProgressSection() {
                 src="/images/services/service-2.jpeg"
                 alt="Dashboard de suivi"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>

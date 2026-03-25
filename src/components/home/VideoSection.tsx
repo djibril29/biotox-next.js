@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { Play, ArrowRight } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -55,11 +56,12 @@ export default function VideoSection() {
             className={`relative transition-all duration-700 delay-200 ${videoVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}
           >
             <div className="relative aspect-video rounded-2xl overflow-hidden bg-gray-200 group">
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{
-                  backgroundImage: 'url("/images/hero/hero3.jpeg")',
-                }}
+              <Image
+                src="/images/hero/hero3.jpeg"
+                alt="BTLABS terrain"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gray-900/40 transition-opacity duration-300 group-hover:bg-gray-900/30" />
               

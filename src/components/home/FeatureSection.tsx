@@ -30,6 +30,7 @@ export default function FeatureSection() {
                 src="/images/services/service-1.jpeg"
                 alt="Équipe BTLABS"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700"
               />
             </div>
@@ -97,7 +98,7 @@ export default function FeatureSection() {
                 className={`relative h-16 ${logo.width} hover:scale-110 transition-all duration-500 ${logoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
+                <Image src={logo.src} alt={logo.alt} fill sizes="128px" className="object-contain" />
               </div>
             ))}
           </div>
