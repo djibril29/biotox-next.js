@@ -17,7 +17,8 @@ export default function FeatureSection() {
   const { count: yearsCount, ref: counterRef } = useCounterAnimation(15, 2000);
 
   return (
-    <section className="section-padding bg-gray-50 overflow-hidden">
+    <section className="section-padding bg-gray-50 overflow-hidden relative">
+      <span aria-hidden="true" className="pointer-events-none select-none absolute -top-8 right-0 text-[20rem] font-black text-gray-900/[0.04] leading-none">02</span>
       <div className="container">
         <div ref={sectionRef} className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Image */}

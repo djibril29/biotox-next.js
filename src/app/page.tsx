@@ -1,5 +1,6 @@
 import Hero from '@/components/home/Hero';
 import VideoSection from '@/components/home/VideoSection';
+import Marquee from '@/components/ui/Marquee';
 import Domains from '@/components/home/Domains';
 import CTABanner from '@/components/home/CTABanner';
 import FeatureSection from '@/components/home/FeatureSection';
@@ -12,7 +13,9 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <Marquee />
       <VideoSection />
+      
       <Domains />
       <CTABanner />
       <FeatureSection />

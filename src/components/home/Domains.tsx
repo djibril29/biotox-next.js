@@ -62,7 +62,8 @@ export default function Domains() {
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation({ threshold: 0.1 });
 
   return (
-    <section className="section-padding bg-white overflow-hidden">
+    <section className="section-padding bg-white overflow-hidden relative">
+      <span aria-hidden="true" className="pointer-events-none select-none absolute -top-8 right-0 text-[20rem] font-black text-gray-900/[0.03] leading-none">01</span>
       <div className="container">
         {/* Header */}
         <div 

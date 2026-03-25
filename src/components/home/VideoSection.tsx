@@ -9,11 +9,7 @@ export default function VideoSection() {
   const { ref: videoRef, isVisible: videoVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <section className="section-padding bg-gray-900 relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzBoLTJ2LTJoMnYyem0wLTEwaC0ydi0yaDJ2MnptMTAgMGgtMnYtMmgydjJ6bTAgMTBoLTJ2LTJoMnYyem0tMjAtMjBoLTJ2LTJoMnYyem0wIDEwaC0ydi0yaDJ2MnptMTAtMTBoLTJ2LTJoMnYyem0wIDEwaC0ydi0yaDJ2MnoiLz48L2c+PC9nPjwvc3ZnPg==')]" />
-      </div>
+    <section className="section-padding bg-gray-50 relative overflow-hidden">
 
       <div className="container relative">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -23,14 +19,14 @@ export default function VideoSection() {
             className={`transition-all duration-700 ${contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}
           >
             <h2 
-              className={`text-3xl md:text-4xl font-bold text-white leading-tight mb-6 transition-all duration-700 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+              className={`text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-6 transition-all duration-700 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
               style={{ transitionDelay: '100ms' }}
             >
               Mesurer, analyser, agir{' '}
               <span className="text-[#37afae]">pour un impact positif et durable sur l&apos;environnemnt et les communautés.</span>
             </h2>
             <p 
-              className={`text-gray-300 text-lg leading-relaxed mb-8 transition-all duration-700 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+              className={`text-gray-600 text-lg leading-relaxed mb-8 transition-all duration-700 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
               style={{ transitionDelay: '200ms' }}
             >
               La mission principale de BTLABS est d&apos;accompagner les industries, collectivités et projets de développement dans la maîtrise de leurs impacts environnementaux et sanitaires, en fournissant des mesures fiables, des analyses scientifiques rigoureuses et des solutions adaptées pour améliorer durablement leur performance et leur conformité réglementaire.
@@ -40,7 +36,7 @@ export default function VideoSection() {
               style={{ transitionDelay: '300ms' }}
             >
               <div className={`h-[2px] bg-[#37afae] transition-all duration-1000 ${contentVisible ? 'w-12' : 'w-0'}`} style={{ transitionDelay: '500ms' }} />
-              <p className="text-gray-400 italic">Serigne Abdou Lahad YADE, CEO</p>
+              <p className="text-gray-500 italic">Serigne Abdou Lahad YADE, CEO</p>
             </div>
             
             <Link
@@ -58,7 +54,7 @@ export default function VideoSection() {
             ref={videoRef}
             className={`relative transition-all duration-700 delay-200 ${videoVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}
           >
-            <div className="relative aspect-video rounded-2xl overflow-hidden bg-gray-800 group">
+            <div className="relative aspect-video rounded-2xl overflow-hidden bg-gray-200 group">
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                 style={{
