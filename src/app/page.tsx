@@ -7,6 +7,7 @@ import FeatureSection from '@/components/home/FeatureSection';
 import Testimonials from '@/components/home/Testimonials';
 import ProgressSection from '@/components/home/ProgressSection';
 import LatestNews from '@/components/home/LatestNews';
+import ZoneIntervention from '@/components/home/ZoneIntervention';
 import CTA from '@/components/home/CTA';
 
 export default function HomePage() {
@@ -19,6 +20,7 @@ export default function HomePage() {
       <Domains />
       <CTABanner />
       <FeatureSection />
+      <ZoneIntervention />
       <Testimonials />
       <ProgressSection />
       <CTA />
