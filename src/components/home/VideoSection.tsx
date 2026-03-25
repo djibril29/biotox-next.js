@@ -27,7 +27,7 @@ export default function VideoSection() {
               style={{ transitionDelay: '100ms' }}
             >
               Mesurer, analyser, agir{' '}
-              <span className="text-[#37afae]">pour un impact positif et durable sur l'environnemnt et les communautés.</span>
+              <span className="text-[#37afae]">pour un impact positif et durable sur l&apos;environnemnt et les communautés.</span>
             </h2>
             <p 
               className={`text-gray-300 text-lg leading-relaxed mb-8 transition-all duration-700 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
