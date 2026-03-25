@@ -27,7 +27,7 @@ const features = [
 export default function ProgressSection() {
   return (
     <section className="section-padding bg-white overflow-hidden relative">
-      <span aria-hidden="true" className="pointer-events-none select-none absolute -top-8 right-0 text-[20rem] font-black text-gray-900/[0.03] leading-none">04</span>
+      <span aria-hidden="true" className="pointer-events-none select-none absolute -top-8 right-0 text-[20rem] font-black text-gray-900/[0.03] leading-none">03</span>
       <div className="container">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">

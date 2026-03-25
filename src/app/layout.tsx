@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
 import './globals.css';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import CustomCursor from '@/components/ui/CustomCursor';
+import SiteChrome from '@/components/layout/SiteChrome';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -35,12 +33,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={dmSans.variable} suppressHydrationWarning>
       <body className="font-sans antialiased" suppressHydrationWarning>
-        <CustomCursor />
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

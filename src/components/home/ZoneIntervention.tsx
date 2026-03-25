@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
+import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simple-maps';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json';
@@ -32,6 +32,7 @@ export default function ZoneIntervention() {
   const [mounted, setMounted]               = useState(false);
   const [hoveredCountry, setHoveredCountry] = useState<HoveredCountry>(null);
   const [mousePos, setMousePos]             = useState({ x: 0, y: 0 });
+  const [zoom, setZoom]                     = useState(1);
   const mapRef = useRef<HTMLDivElement>(null);
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
@@ -51,7 +52,7 @@ export default function ZoneIntervention() {
         aria-hidden="true"
         className="pointer-events-none select-none absolute -top-8 right-0 text-[20rem] font-black text-white/[0.03] leading-none"
       >
-        03
+        04
       </span>
 
       <div className="container">
@@ -71,10 +72,11 @@ export default function ZoneIntervention() {
               {mounted ? (
                 <ComposableMap
                   projection="geoMercator"
-                  projectionConfig={{ center: [20, 10], scale: 480 }}
-                  viewBox="0 0 800 700"
+                  projectionConfig={{ center: [20, 9], scale: 480 }}
+                  viewBox="0 0 800 650"
                   style={{ width: '100%', height: 'auto' }}
                 >
+                  <ZoomableGroup zoom={zoom} center={[20, 0]}>
                   <Geographies geography={GEO_URL}>
                     {({ geographies }: { geographies: any[] }) =>
                       geographies.map((geo: any) => {
@@ -109,12 +111,27 @@ export default function ZoneIntervention() {
                       })
                     }
                   </Geographies>
+                  </ZoomableGroup>
                 </ComposableMap>
               ) : (
                 <div className="h-[450px] flex items-center justify-center">
                   <div className="w-8 h-8 border-2 border-[#37afae] border-t-transparent rounded-full animate-spin" />
                 </div>
               )}
+
+              {/* Zoom controls */}
+              <div className="absolute bottom-4 right-4 z-10 flex flex-col gap-1">
+                <button
+                  onClick={() => setZoom(z => Math.min(z + 0.5, 8))}
+                  className="w-8 h-8 bg-gray-700 hover:bg-[#37afae] text-white rounded-md flex items-center justify-center text-lg font-bold transition-colors duration-200"
+                  aria-label="Zoom in"
+                >+</button>
+                <button
+                  onClick={() => setZoom(z => Math.max(z - 0.5, 1))}
+                  className="w-8 h-8 bg-gray-700 hover:bg-[#37afae] text-white rounded-md flex items-center justify-center text-lg font-bold transition-colors duration-200"
+                  aria-label="Zoom out"
+                >−</button>
+              </div>
 
               {/* Hover tooltip */}
               {hoveredCountry && (
