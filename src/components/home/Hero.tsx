@@ -104,7 +104,7 @@ export default function Hero() {
         </div>
 
         {/* Right spacer — image lives in the background panel */}
-        <div className="order-1 -z-10 lg:order-2 w-full lg:w-1/2 h-64 sm:h-80 lg:h-auto" />
+        <div className="order-1  lg:order-2 w-full lg:w-1/2 h-64 sm:h-80 lg:h-auto" />
       </div>
 
       {/* Scroll indicator */}
