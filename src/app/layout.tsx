@@ -10,18 +10,39 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.btlabsconsulting.com'),
   title: {
-    default: 'BTLABS - BIOTOX LABS CONSULTING',
-    template: '%s | BTLABS',
+    default: 'BTLABS - Cabinet Conseil Environnement Sénégal',
+    template: '%s | BTLABS Consulting',
   },
-  description: 'Structure spécialisée dans la surveillance environnementale et les études d\'impact (EIES/PGES). Accompagnement des industries vers l\'excellence environnementale au Sénégal et en Afrique de l\'Ouest.',
-  keywords: ['environnement', 'consulting', 'EIES', 'PGES', 'qualité air', 'qualité eau', 'bruit', 'vibrations', 'Sénégal', 'Afrique', 'QHSE'],
-  authors: [{ name: 'BTLABS' }],
+  description: 'Cabinet spécialisé en études d\'impact environnemental et social (EIES/PGES), qualité de l\'air, QHSE et surveillance environnementale au Sénégal et en Afrique de l\'Ouest.',
+  keywords: [
+    'études environnementales et sociales',
+    'cabinet environnement Sénégal',
+    'expert environnement Dakar',
+    'qualité de l\'air Sénégal',
+    'QHSE Afrique de l\'Ouest',
+    'EIES Sénégal',
+    'PGES Sénégal',
+    'études impact environnemental',
+    'surveillance environnementale',
+    'audit environnemental Dakar',
+    'consulting environnement',
+    'BTLABS',
+  ],
+  authors: [{ name: 'BTLABS Consulting' }],
   openGraph: {
-    title: 'BTLABS - BIOTOX LABS CONSULTING',
-    description: 'Expertise environnementale pour un avenir durable',
+    title: 'BTLABS - Cabinet Conseil Environnement Sénégal',
+    description: 'Expert en études d\'impact environnemental, qualité de l\'air, QHSE et surveillance environnementale au Sénégal.',
     type: 'website',
     locale: 'fr_FR',
+    url: 'https://www.btlabsconsulting.com',
+    siteName: 'BTLABS Consulting',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'BTLABS - Cabinet Conseil Environnement Sénégal',
+    description: 'Expert en études d\'impact environnemental, qualité de l\'air et QHSE au Sénégal.',
   },
 };
 
