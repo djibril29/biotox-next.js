@@ -61,7 +61,7 @@ export default function AboutHero() {
               className={`text-4xl sm:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
               style={{ transitionDelay: '250ms' }}
             >
-              Qui sommes-<span className="text-[#37afae]">nous ?</span>
+              Expert en <span className="text-[#37afae]">Environnement</span>
             </h1>
 
             <p

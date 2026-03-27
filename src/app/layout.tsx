@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
 import './globals.css';
 import SiteChrome from '@/components/layout/SiteChrome';
+import JsonLd from '@/components/JsonLd';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -54,6 +55,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={dmSans.variable} suppressHydrationWarning>
       <body className="font-sans antialiased" suppressHydrationWarning>
+        <JsonLd />
         <SiteChrome>{children}</SiteChrome>
       </body>
     </html>

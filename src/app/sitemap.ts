@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { client } from '@/sanity/lib/client';
 
+export const revalidate = 86400; // régénère toutes les 24h
+
 const BASE_URL = 'https://www.btlabsconsulting.com';
 
 async function getProjectSlugs(): Promise<string[]> {

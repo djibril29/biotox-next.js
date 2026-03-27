@@ -60,8 +60,8 @@ export default function ServicesHero() {
               className={`text-4xl sm:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
               style={{ transitionDelay: '250ms' }}
             >
-              Nos Domaines<br />
-              <span className="text-[#37afae]">d&apos;Intervention</span>
+              EIES · Mesures Air, Eau, Sol,<br />
+              <span className="text-[#37afae]">Bruit, Vibrations &amp; QHSE</span>
             </h1>
 
             <p

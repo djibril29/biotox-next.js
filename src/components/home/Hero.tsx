@@ -60,8 +60,8 @@ export default function Hero() {
             className={`text-4xl sm:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
             style={{ transitionDelay: '250ms' }}
           >
-            L&apos;expertise scientifique au service de{' '}
-            <span className="text-[#37afae]">l&apos;environnement</span>
+            Cabinet d&apos;études d&apos;impact<br />
+            <span className="text-[#37afae]">environnemental et social</span>
           </h1>
 
           {/* Subtext */}

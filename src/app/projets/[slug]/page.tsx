@@ -15,9 +15,32 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const projet: Projet = await client.fetch(PROJET_QUERY, { slug });
   if (!projet) return {};
+
+  const BASE_URL = 'https://www.btlabsconsulting.com';
+  const pageUrl = `${BASE_URL}/projets/${slug}`;
+  const imageUrl = projet.coverImage
+    ? urlFor(projet.coverImage).width(1200).height(630).url()
+    : undefined;
+
   return {
-    title: projet.title,
+    title: `${projet.title} — Étude Environnementale Sénégal`,
     description: projet.summary,
+    keywords: [
+      ...(projet.keywords ?? []),
+      'BTLABS',
+      'étude environnementale Sénégal',
+      projet.sector ?? '',
+      projet.city ?? '',
+    ].filter(Boolean),
+    openGraph: {
+      title: projet.title,
+      description: projet.summary,
+      url: pageUrl,
+      ...(imageUrl && { images: [{ url: imageUrl, width: 1200, height: 630 }] }),
+    },
+    alternates: {
+      canonical: pageUrl,
+    },
   };
 }
 
@@ -27,7 +50,7 @@ export default async function ProjetPage({ params }: PageProps) {
 
   if (!projet) notFound();
 
-  const { title, coverImage, sector, client: clientName, city, zone, year, summary, services, standards, context, intervention, valeurAjoutee, keywords } = projet;
+  const { title, coverImage, client: clientName, city, zone, year, summary, services, standards, context, intervention, valeurAjoutee, keywords } = projet;
 
   return (
     <main className="bg-white">
