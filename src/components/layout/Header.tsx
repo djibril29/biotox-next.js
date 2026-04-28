@@ -48,7 +48,7 @@ export default function Header() {
             <div className="hidden md:flex items-center gap-6">
               <div className="flex items-center gap-2">
                 <Phone size={14} />
-                <span>+221 77 XXX XX XX</span>
+                <span>338561501</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock size={14} />

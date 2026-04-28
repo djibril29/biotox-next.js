@@ -21,7 +21,7 @@ export default function ContactHero() {
         <div className="order-1 lg:order-2 flex-1 relative overflow-hidden">
           <div className={`absolute inset-0 transition-transform duration-[8000ms] ease-out ${isLoaded ? 'scale-110' : 'scale-100'}`}>
             <Image
-              src="/images/hero/hero1.jpeg"
+              src="/images/hero/hero7.jpg"
               alt="Contact BTLABS"
               fill
               className="object-cover object-center"
@@ -73,7 +73,7 @@ export default function ContactHero() {
             style={{ transitionDelay: '550ms' }}
           >
             <a
-              href="tel:+221770000000"
+              href="tel:338561501"
               className="btn-shine inline-flex items-center gap-2 bg-[#37afae] hover:bg-[#2a9d9c] text-white px-8 py-4 rounded-lg font-semibold text-sm uppercase tracking-wider transition-colors duration-300 hover:shadow-xl hover:shadow-[#37afae]/25"
             >
               Appelez-nous

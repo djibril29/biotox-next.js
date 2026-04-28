@@ -9,7 +9,7 @@ export const siteConfig = {
 
 export const contact = {
   email: 'contact@btlabs.sn',
-  phone: '+221 77 XXX XX XX',
+  phone: '338561501',
   address: 'Dakar, Sénégal',
   linkedin: '#',
   facebook: '#',

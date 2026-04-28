@@ -26,7 +26,7 @@ export default function AboutHero() {
           <div className="order-1 lg:order-2 flex-1 relative overflow-hidden">
             <div className={`absolute inset-0 transition-transform duration-[8000ms] ease-out ${isLoaded ? 'scale-110' : 'scale-100'}`}>
               <Image
-                src="/images/hero/hero4.jpeg"
+                src="/images/hero/hero6.jpg"
                 alt="Équipe BTLABS"
                 fill
                 className="object-cover object-center"

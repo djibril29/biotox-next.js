@@ -29,7 +29,7 @@ export default function Hero() {
             className={`absolute inset-0 transition-transform duration-[8000ms] ease-out ${isLoaded ? 'scale-110' : 'scale-100'}`}
           >
             <Image
-              src="/images/hero/hero1.jpeg"
+              src="/images/hero/hero5.jpg"
               alt="BTLABS expertise terrain"
               fill
               className="object-cover object-center"
