@@ -11,9 +11,8 @@ export const contact = {
   email: 'contact@btlabs.sn',
   phone: '338561501',
   address: 'Dakar, Sénégal',
-  linkedin: '#',
-  facebook: '#',
-  twitter: '#',
+  linkedin: 'https://www.linkedin.com/company/btlabsconsulting',
+  facebook: 'https://www.facebook.com/profile.php?id=61585538979759',
 };
 
 export const stats = [

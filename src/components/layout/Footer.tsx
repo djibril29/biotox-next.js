@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, Linkedin, Facebook, Twitter, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Facebook, ArrowRight } from 'lucide-react';
 import { siteConfig, contact, services, navigation } from '@/lib/data';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -55,6 +55,8 @@ export default function Footer() {
             <div className="flex gap-3">
               <a
                 href={contact.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#37afae] hover:scale-110 transition-all duration-300"
                 aria-label="LinkedIn"
               >
@@ -62,17 +64,12 @@ export default function Footer() {
               </a>
               <a
                 href={contact.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#37afae] hover:scale-110 transition-all duration-300"
                 aria-label="Facebook"
               >
                 <Facebook size={18} />
-              </a>
-              <a
-                href={contact.twitter}
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#37afae] hover:scale-110 transition-all duration-300"
-                aria-label="Twitter"
-              >
-                <Twitter size={18} />
               </a>
             </div>
           </div>

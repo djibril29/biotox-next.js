@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Phone, Clock, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Menu, X, Phone, Clock, Facebook, Linkedin } from 'lucide-react';
 import { navigation, siteConfig } from '@/lib/data';
 
 export default function Header() {
@@ -35,14 +35,23 @@ export default function Header() {
         <div className="bg-gray-900/80 backdrop-blur-sm text-white/80 text-sm">
           <div className="container flex items-center justify-between py-2">
             <div className="flex items-center gap-6">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              <a
+                href="https://www.facebook.com/profile.php?id=61585538979759"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+                aria-label="Facebook"
+              >
                 <Facebook size={16} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                <Instagram size={16} />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                <Twitter size={16} />
+              <a
+                href="https://www.linkedin.com/company/btlabsconsulting"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={16} />
               </a>
             </div>
             <div className="hidden md:flex items-center gap-6">
