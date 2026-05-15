@@ -334,8 +334,18 @@ body {
    ======================================== */
 
 @media (hover: hover) and (pointer: fine) {
-  * {
+  /* Enabled via SiteChrome — never on /studio (see data-studio below) */
+  html[data-custom-cursor]:not([data-studio]) *,
+  html[data-custom-cursor]:not([data-studio]) *::before,
+  html[data-custom-cursor]:not([data-studio]) *::after {
     cursor: none !important;
+  }
+
+  /* Sanity Studio + dialogs/portals — system cursor */
+  html[data-studio] *,
+  html[data-studio] *::before,
+  html[data-studio] *::after {
+    cursor: auto !important;
   }
 
   .cursor-dot {

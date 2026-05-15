@@ -52,6 +52,7 @@ export default function HomePage() {
       <ZoneIntervention />
       <Testimonials />
       <ProgressSection />
+      <LatestNews />
       <CTA />
     </>
   );

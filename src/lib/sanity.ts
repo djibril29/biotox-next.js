@@ -51,3 +51,52 @@ export const PROJET_QUERY = `*[_type == "projet" && slug.current == $slug][0] {
   valeurAjoutee,
   keywords,
 }`;
+
+export const ARTICLES_QUERY = `*[_type == "article"] | order(publishedAt desc) {
+  _id,
+  title,
+  slug,
+  coverImage,
+  excerpt,
+  publishedAt,
+  category,
+  author,
+}`;
+
+export const LATEST_ARTICLES_QUERY = `*[_type == "article"] | order(publishedAt desc)[0...3] {
+  _id,
+  title,
+  slug,
+  coverImage,
+  excerpt,
+  publishedAt,
+  category,
+  author,
+}`;
+
+export const FEATURED_ARTICLE_QUERY = `*[_type == "article" && featured == true][0] {
+  _id,
+  title,
+  slug,
+  coverImage,
+  excerpt,
+  publishedAt,
+  category,
+  author,
+}`;
+
+export const ARTICLE_QUERY = `*[_type == "article" && slug.current == $slug][0] {
+  _id,
+  title,
+  slug,
+  coverImage,
+  excerpt,
+  publishedAt,
+  category,
+  author,
+  content,
+  showPartnerSidebar,
+  partnerName,
+  partnerLogo,
+  keywords,
+}`;

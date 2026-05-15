@@ -379,6 +379,7 @@ export const navigation = [
   { name: 'À Propos', href: '/a-propos' },
   { name: 'Services', href: '/services' },
   { name: 'Projets', href: '/projets' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Contact', href: '/contact' },
 ];
 
